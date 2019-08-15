@@ -1,0 +1,19 @@
+{% block content%}
+
+<h1><center>Articles</center></h1>
+
+<div class="col s12 m7">
+    <div class="card horizontal">
+        <div class="card-content">
+            {% for article in articles %}
+            <div class="card-image">
+                <img src="{{article.image.url}}" alt="image" width="200px" height="100px">
+            </div>
+            <h4>
+                <a href="{%url 'blog:article_detail' article.id %}">{{article.title }}</a>
+            </h4>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{%endblock%}

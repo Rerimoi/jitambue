@@ -1,0 +1,13 @@
+{% block content%}
+<div class="card-image">
+    <img src="{{article.image.url}}" alt="image"  width="200px" height="100px"> 
+</div>
+
+<ul>
+    <li>
+        <h4>{{article.title}}</h4>
+    </li>
+    <li>{{article.content}}</li>
+    <li> Written by:<br>{{article.writer}}</li>
+</ul>
+{%endblock%}
