@@ -1,6 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link type="text/css" rel="stylesheet" href="{%static 'css/knowzone.css'%}">
+{% endblock %}
+
+{% block title %}
+    <title>knowzone</title>
+{% endblock %}
+
 {% block content%}
 
-<div class="col s12 m7">
+<div class=" card col s12 m7">
     <div class="card horizontal">
         <div class="card-stacked">
             <div class="card-content">
