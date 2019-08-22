@@ -1,13 +1,33 @@
+{% extends 'base.html' %}
+{%load static%}
 {% block content%}
-<div class="card-image">
-    <img src="{{article.image.url}}" alt="image"  width="200px" height="100px"> 
+    
+<div class="image-container">
+    <img src="{{article.image.url}}" class="image" alt="image" >
 </div>
-
-<ul>
-    <li>
-        <h4>{{article.title}}</h4>
-    </li>
-    <li>{{article.content}}</li>
-    <li> Written by:<br>{{article.writer}}</li>
-</ul>
+            <h4 class="article_title">{{article.title}}</h4>
+<div class="container">
+        {{article.content | safe | linebreaks}}
+</div>
+<div class="author">
+        Written by:<br>{{article.writer}}
+</div> 
+       
+       
+    
 {%endblock%}
+
+<style>
+        .image-container{
+            margin: 20 20 20 20;
+        }
+        .article_title{
+            text-align: center;
+        }
+        .author{
+            text-align: left;
+        }
+
+
+        </style>
+   
