@@ -150,4 +150,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # spacifies where user is redirect once the have logged in
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
