@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+    <head>
+        <title>
+            {% block title %} Jitambue signup{% endblock %}
+        </title>
+        <link type="text/css" rel="stylesheet" href="{%static 'css/materialize.css'%}" media="screen,projection">
+        <link type="text/css" rel="stylesheet" href="{%static 'css/signup.css'%}">
+    </head>
+
+    <body>
+        <div class="login-box">
+            <img src="{%static 'images/avatar.jpg'%}" class="avatar" alt="avatar">
+            {% block content %}
+            <h5 class="center-align">Signup here</h5>
+            <form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                    <button type="submit">Signup</button>
+                </form>
+                {% endblock %}
+
+        </div>
+
+        <script type="text/javascript" src="{%static 'scripts/materialize.min.js'%}"></script>
+            
+        
+    </body>
+    
+    
+</html>

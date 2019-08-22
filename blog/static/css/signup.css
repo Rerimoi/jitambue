@@ -1,0 +1,37 @@
+
+body{
+    margin: 0;
+    padding:0;
+    background: url(/static/images/srh.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+.login-box{
+    /* width: 500px;
+    height: 700px; */
+    background: #000000c0;
+    /* top: 45%; */
+    /* margin-top: 50%; */
+    margin-left: 50%;
+    position: static;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 50px 25px;
+    
+}
+
+.avatar{
+    width: 100px;
+    height:100px;
+    border-radius:50%;
+    position: relative;
+    top: 30px;
+    margin-left: 250px;
+    margin-bottom: 40px;
+    /* left: calc(50% -50px) */
+   
+}
+h5{
+    color: white;
+}
