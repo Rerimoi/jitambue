@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <link rel="stylesheet" type="text/css" href="{% static 'css/userprofile.css'%}">
+            </head>
+    
+    {% block content %}
+   <style>
+       .userProfile{
+        padding: 100px;
+        margin-left:450px;
+       }
+   </style>
+    <div class="userProfile">
+    <h2>User Profile</h2>
+    <form method="post" action={% url 'blog:userprofile' %} enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save"></input>
+    </form>
+    </div>
+    {% endblock %}
+    <script type=text/javascript>
+        $(function () {
+            $(".datepicker").datepicker({
+                changeMonth:true,
+                changeYear: true,
+                yearRange:"1900:2019"
+            });
+        });
+    </script>
+</html>
