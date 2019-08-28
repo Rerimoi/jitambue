@@ -1,0 +1,32 @@
+.description {
+    left: 50%;
+    position: absolute;
+    top: 45%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+  }
+  .description h1 {
+    color: #4698db;
+  }
+  .description p {
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+  .description a {
+    border:1px solid #4698db;
+    background:#4698db;
+    border-radius: 0;
+    color:#fff;
+  }
+  .description a:hover {
+    border:1px solid #f5425d;
+    background:#f5425d;
+    color:#000;
+  }
+  .features {
+    margin: 4em auto;
+    padding: 1em;
+    position: relative;
+  }
+  
