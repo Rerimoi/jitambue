@@ -1,0 +1,47 @@
+body{
+    padding: 0;
+    margin: 0;
+   /* background: #f7d7e6; */
+   background: url(/static/images/srh_1.jpg);
+    background-size: cover;
+    /* background-position: center; */
+}
+
+.signup-box {
+    /* width: 700px; */
+    background:#faf9f9e8 ;
+    padding: 50px;
+    box-sizing: border-box;
+    position: absolute;
+    margin:150px;
+    margin-left: 550px;
+
+}
+.avatar{
+    width: 100px;
+    height:100px;
+    margin-left: 160px;
+    margin-bottom: 20px;
+}
+h5{
+  color: #4698db;
+  
+   
+    text-align: center;
+}
+span{
+    float: right;
+}
+
+.login-box{
+    background:#e7e6e6c0 ;
+    padding: 50px;
+    box-sizing: border-box;
+    position: absolute;
+    margin:150px;
+    margin-left: 500px;
+}
+h2{
+    color: #f5425d;
+    text-align: center;
+}
