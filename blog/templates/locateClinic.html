@@ -25,11 +25,17 @@
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
-      var map, infoWindow;
+      var map, infoWindow,request;
       function initMap() {
+        // var center= new.google.maps.LatLng(-34.397, 150.644);
+        // var lat = parseFloat(document.getElementById('lat').value);
+        // var lng = parseFloat(document.getElementById('lng').value);
+
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 6
+          center: ({
+            lat:-34.397,
+            lng: 150.644}),
+          zoom: 13
         });
         infoWindow = new google.maps.InfoWindow;
 
@@ -52,8 +58,46 @@
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
+
+         // places api find place code 
+
+       request={
+          // location should be cetnered based on user's location.
+          location: map,
+          // enter radius which is in meters
+          radius:8000, 
+          // determines the place we are searching for 
+          types: ['doctor','hospital']
+        };
+
+        // create a service using the Places API
+        var service= new google.maps.places.PlacesService(map);
+        // searches for the request and callback that ensures location was located accurately
+        service.nearbySearch(request, callback);
+
+
       }
 
+     
+      // ensures no error occurs during request call
+      function callback(results,status){
+        if(status == google.maps.places.PlacesServiceStatus.OK){
+          for(var i= 0; i < results.length; i++){
+            createMarker(results[i]);
+          }
+        }
+      }
+      // Create marker and places them pon map  to show clinics located
+
+      function createMarker(place){
+        var placeLoc =place.geometry.location;
+        var marker = new google.maps.Marker({
+          map:map,
+          position: place.geometry.location
+        });
+      }
+
+// error handling for obtaining user location
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
@@ -61,10 +105,18 @@
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+
+
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA213ORBKAXRT_ZXeCCErCv9nyukmS2jYc&callback=initMap">
-    </script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA213ORBKAXRT_ZXeCCErCv9nyukmS2jYc&libraries=places"></script>
+
+   
+
+
+ 
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA213ORBKAXRT_ZXeCCErCv9nyukmS2jYc&libraries=places&callback=initMap"></script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA213ORBKAXRT_ZXeCCErCv9nyukmS2jYc&libraries=places"></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA213ORBKAXRT_ZXeCCErCv9nyukmS2jYc&libraries=places&callback=initMap" async defer></script> -->
+ 
   </body>
 </html>
