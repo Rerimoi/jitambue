@@ -1,8 +1,11 @@
 from django.shortcuts import render,redirect
 from django.views import View
-from .models import Category, Article, UserProfileInfo
+from .models import Category, Article
 from . import forms
 from django.contrib.auth.models import User
+# from .forms import ProfileForm
+# from django.contrib.auth.decorators import login_required
+# from django.db import transaction
 
 # Create your views here.
 def home(request):
@@ -14,6 +17,11 @@ class locateClinic(View):
     def get(self,request):
         return render(request,self.template, {})
 
+class Login(View):
+    template = "registration/login.html"
+    
+    def get(self,request):
+        return render(request,self.template, {})
 
 class Signup(View):
 
@@ -36,28 +44,30 @@ class Signup(View):
         user.last_name =last_name
         user.save()
         return redirect("login")
+# user profile view
+# @login_required
+# @transaction.atomic
+# def update_profile(request):
+#     if request.method == 'POST':
+        
+#         user_form = Signup(request.POST, instance=request.user)
+#         profile_form = ProfileForm(request.POST, instance=request.user.profile)
+#         if user_form.is_valid() and profile_form.is_valid():
+#             user_form.save()
+#             profile_form.save()
+#             messages.success(request, _('Your profile was successfully updated!'))
+#             return redirect('login')
+#         else:
+#             messages.error(request, _('Please correct the error below.'))
+#     else:
+#         user_form = Signup(instance=request.user)
+#         profile = Profile.objects.create(user=request.user)
+#         profile_form = ProfileForm(instance=request.user.profile)
+#     return render(request, 'userProfile.html', {
+#         'user_form': Signup,
+#         'profile_form': ProfileForm
 
-class Editprofile(View):
-    form_class=forms.UserProfile
-    template="userProfile.html"
-
-    def get(self,request):
-        form=self.form_class(None)
-        return render(request, self.template, {"form":form})
-
-    def post(self,request):
-        form=self.form_class(request.POST, request.FILES)
-        username= request.user
-        print(username, request.POST, request.FILES)
-        # user=User.objects.get(username=username)
-        # print(user)
-        # profilePic= request.FILES["Profile_picture"]
-        # sex= request.POST["sex"]
-        # dateOfBirth= request.POST["Date_Of_birth"]
-        # userProfile = UserProfileInfo.objects.create(profile_pic=profilePic, user=user, dateOfBirth=dateOfBirth,sex=sex)
-        # userProfile.save() 
-        return render(request, self.template, {"form":form})
-
+#         })
 
 class Articles(View):
     template = 'articles.html'
