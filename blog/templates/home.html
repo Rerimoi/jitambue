@@ -1,13 +1,20 @@
-
+{% extends 'base.html' %}
+{%load static%}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}
-  <p><a href="{% url 'logout' %}">logout</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
-{% endif %}
+
+
+<div class="description">
+    <h1>Welcome to Jitambue!</h1>
+    <p>Having trouble accessing information on your reproductive health?<br></p>
+    <p>Jitambue is a platform designed to help you access sexual and Reproductive Health Information while anonymous. It is designed to be used by young people between the age of 11-24 years.<br> It's simple design makes it easy to navigate trhough the site with no trouble.
+      Jitambue also allows you to search for a clinic near your location so as you cann access SRH services easily.</p>
+      <a href="{%url 'blog:knowzone'%}" class="btn btn-outline-secondary btn-lg">Tell Me More!</a>
+  </div>
+
 {% endblock %}
+
+
+
