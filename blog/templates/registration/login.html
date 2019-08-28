@@ -1,10 +1,38 @@
+<!DOCTYPE html>
+{% load static%}
+{% load crispy_forms_tags %}
+<html lang="en">
+    <head>
+        <title>
+            {% block title %} Jitambue signup{% endblock %}
+        </title>
+        <link type="text/css" rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+        <link rel="stylesheet" type="text/css" href="{% static 'Font-Awesome-master/css/font-awesome.min.css'%}">
+        <link type="text/css" rel="stylesheet" href="{%static 'css/account.css'%}">
+    </head>
+
+    <body>
+      <div class="login-box">
+
 {% block content %}
-<h2>Login</h2>
+<h2> Jitambue Login</h2>
 <form method="post">
   {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
+  {{ form|crispy }}
+  <button type="submit"class="btn btn-primary">Login</button>
+  <span><button type="reset" class="btn btn-secondary ">reset</button></span>
 </form>
-
+<a href="{% url 'password_reset'%"}>Forgot password</a>
 <p>Don't have an account? Sign up <a href="{% url 'blog:signup' %}"> here</a></p>
 {% endblock %}
+</div>
+
+<script type="text/javascript" src="{%static 'scripts/jquery-3.2.1.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'scripts/popper.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'scripts/bootstrap.min.js'%}"></script>
+            
+        
+    </body>
+    
+    
+</html>
