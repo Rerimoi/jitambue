@@ -53,8 +53,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'crispy_forms',
    
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -93,7 +96,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME':'postgres',
+        'NAME':'jitambue',
         'USER':'postgres',
         'PASSWORD':'jitambueadmin',
         'HOST':'localhost',
@@ -120,6 +123,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+# AUTH_PROFILE_MODULE = 'base.profile'
+# AUTH_PROFILE_MODULE = "blog.UserProfileInfo"
+# ATOMIC_REQUESTS="True"
 
 
 # Internationalization
