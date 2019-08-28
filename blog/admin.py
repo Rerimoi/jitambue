@@ -1,10 +1,11 @@
 from django.contrib import admin
-from .models import Category, Article,UserProfileInfo
+from .models import Category, Article
 
 
 # Register your models here.
 admin.site.register(Category)
 admin.site.register(Article)
-admin.site.register(UserProfileInfo)
+# admin.site.register(Profile)
+
 admin.site.site_header="Jitambue"
 admin.site.site_title="Jitambue"
