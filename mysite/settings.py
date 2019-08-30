@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'crispy_forms',
+    'django_bootstrap_breadcrumbs',
    
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -155,6 +156,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # spacifies where user is redirect once the have logged in
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/home/'
 LOGOUT_REDIRECT_URL = '/'
 

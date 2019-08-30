@@ -22,6 +22,11 @@ body {
 .navbar-collapse {
   justify-content: flex-end;
 }
+.breadcrumb{
+	height: 50px;
+	background: #fff;
+	color: #000;
+}
 .header {
 	background-image: url(/static/images/srh.jpg);
 	background-size: cover;
