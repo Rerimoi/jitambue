@@ -3,6 +3,7 @@ from django.views import View
 from .models import Category, Article
 from . import forms
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 # from .forms import ProfileForm
 # from django.contrib.auth.decorators import login_required
 # from django.db import transaction
@@ -39,11 +40,21 @@ class Signup(View):
         last_name = request.POST["last_name"]
         email = request.POST["email"]
         password = request.POST["password"]
+        confirm_password= request.POST["confirm_password"]
         user = User.objects.create_user(username, email, password)
         user.first_name = first_name
         user.last_name =last_name
         user.save()
         return redirect("login")
+
+# def create_profile(sender, **kwargs):
+#     user = kwargs["instance"]
+#     if kwargs["created"]:
+#         user_profile = UserProfile(user=user)
+#         user_profile.save()
+# post_save.connect(create_profile, sender=User)
+
+
 # user profile view
 # @login_required
 # @transaction.atomic
