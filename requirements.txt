@@ -2,7 +2,7 @@
 django-bootstrap-breadcrumbs==0.9.1
 django-crispy-forms==1.7.2
 django-report-builder==6.3.2
-djangorestframework==3.10.2
+djangorestframework==3.11.2
 et-xmlfile==1.0.1
 jdcal==1.4.1
 openpyxl==2.6.3
