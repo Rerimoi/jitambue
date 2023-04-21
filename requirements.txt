@@ -1,4 +1,4 @@
-﻿Django==2.2.4
+Django==2.2.4
 django-bootstrap-breadcrumbs==0.9.1
 django-crispy-forms==1.7.2
 django-report-builder==6.3.2
@@ -10,4 +10,4 @@ Pillow==9.0.1
 psycopg2-binary==2.8.3
 pytz==2019.2
 six==1.12.0
-sqlparse==0.3.0
+sqlparse==0.4.4
